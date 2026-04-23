@@ -52,7 +52,8 @@
 
   .topbar { border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 10; backdrop-filter: blur(8px); background: rgba(255,255,255,0.85); }
   @media (prefers-color-scheme: dark) { .topbar { background: rgba(11,18,32,0.85); } }
-  .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.85rem 0; flex-wrap: wrap; }
+  .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.85rem 0; flex-wrap: wrap; }
+  @media (max-width: 640px) { .topbar-inner { padding: 0.65rem 0; gap: 0.4rem; } .brand .sub { display: none; } }
   .brand { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
   .brand .sub { color: var(--muted); font-weight: 400; }
   .meta-inline { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; color: var(--muted); }
@@ -61,14 +62,20 @@
   .badge-prod { background: rgba(5,150,105,0.12); color: var(--emerald); border: 1px solid rgba(5,150,105,0.25); }
 
   main { padding: 2rem 0 3rem; }
-  @media (max-width: 640px) { main { padding: 1.25rem 0 2rem; } }
+  @media (max-width: 640px) { main { padding: 1rem 0 1.5rem; } }
 
   .section { margin-bottom: 2.5rem; }
-  .section h2 { font-size: clamp(1.2rem, 3vw, 1.5rem); margin: 0 0 0.25rem; font-weight: 700; letter-spacing: -0.01em; }
+  .section h2 { font-size: clamp(1.15rem, 3vw, 1.5rem); margin: 0 0 0.25rem; font-weight: 700; letter-spacing: -0.01em; }
   .section .lead { color: var(--muted); margin: 0 0 1.25rem; max-width: 780px; font-size: 14.5px; }
+  @media (max-width: 640px) {
+    .section { margin-bottom: 1.75rem; }
+    .section .lead { font-size: 13.5px; margin-bottom: 0.9rem; }
+    .section h2 { margin-bottom: 0.15rem; }
+  }
 
   .video { margin: 0; background: #000; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(15,23,42,0.12); }
   .video video { display: block; width: 100%; background: #000; }
+  @media (max-width: 640px) { .video { border-radius: 6px; box-shadow: 0 8px 20px rgba(15,23,42,0.08); } }
 
   .links-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1rem; }
   .btn { display: inline-flex; align-items: center; padding: 0.6rem 1.1rem; min-height: 40px; border-radius: 8px; background: var(--bg-alt); color: var(--fg); border: 1px solid var(--border); text-decoration: none; font-size: 13px; font-weight: 500; transition: all 0.12s; }
@@ -76,35 +83,57 @@
   .btn.primary { background: var(--brand); color: var(--brand-fg); border-color: var(--brand); }
   .btn.primary:hover { background: var(--brand); opacity: 0.9; color: var(--brand-fg); }
 
-  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.75rem; }
-  .stat { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.15rem; }
-  .stat-v { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.15; }
-  .stat-v .unit { font-size: 0.85rem; font-weight: 500; color: var(--muted); }
-  .stat-l { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-top: 0.35rem; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.6rem; }
+  .stat { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem 1rem; }
+  .stat-v { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.15; }
+  .stat-v .unit { font-size: 0.8rem; font-weight: 500; color: var(--muted); }
+  .stat-l { font-size: 10.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-top: 0.25rem; }
   .stat-ok .stat-v { color: var(--emerald); }
   .stat-err .stat-v { color: var(--rose); }
+  @media (max-width: 640px) {
+    .stats { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+    .stat { padding: 0.7rem 0.85rem; }
+    .stat-v { font-size: 1.2rem; }
+    .stat-l { font-size: 9.5px; }
+  }
 
   /* Sitemap — the simple classic group-table style */
   .group { margin-bottom: 1.5rem; }
   .group-title { margin: 0 0 0.4rem; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); display: flex; align-items: center; gap: 0.5rem; }
   .group-title .count { background: var(--code-bg); color: var(--muted); padding: 0.05rem 0.5rem; border-radius: 999px; font-size: 10px; font-weight: 600; letter-spacing: 0.04em; }
-  .tbl-wrap { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--bg); }
+  .tbl-wrap { border: 1px solid var(--border); border-radius: 8px; overflow-x: auto; background: var(--bg); -webkit-overflow-scrolling: touch; }
   table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-  th { background: var(--bg-alt); color: var(--muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; text-align: left; padding: 0.5rem 0.85rem; border-bottom: 1px solid var(--border); white-space: nowrap; }
-  td { padding: 0.55rem 0.85rem; border-bottom: 1px solid var(--border); vertical-align: top; word-break: break-word; }
+  th { background: var(--bg-alt); color: var(--muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  td { padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--border); vertical-align: middle; word-break: break-word; }
   tr:last-child td { border-bottom: none; }
   tr:hover td { background: var(--bg-alt); }
-  .c-path code { color: var(--brand); font-weight: 500; word-break: break-all; }
-  .c-num { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; white-space: nowrap; }
+  .c-path code { color: var(--brand); font-weight: 500; word-break: break-all; font-size: 0.95em; }
+  .c-num { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; white-space: nowrap; color: var(--muted); }
   .c-err .ok { color: var(--emerald); font-weight: 600; }
   .c-err .err { color: var(--rose); font-weight: 700; }
 
   @media (max-width: 900px) { .hide-md { display: none; } }
-  @media (max-width: 600px) { .hide-sm { display: none; } th, td { padding: 0.5rem 0.7rem; font-size: 12.5px; } }
+  @media (max-width: 640px) {
+    .hide-sm { display: none; }
+    table { font-size: 12.5px; }
+    th { font-size: 10px; padding: 0.4rem 0.55rem; }
+    td { padding: 0.45rem 0.55rem; }
+    .c-path code { font-size: 12px; }
+    .c-num { font-size: 11px; }
+    .group-title { font-size: 11.5px; margin-bottom: 0.3rem; }
+    .group { margin-bottom: 1rem; }
+  }
+  @media (max-width: 420px) {
+    table { font-size: 11.5px; }
+    th, td { padding: 0.38rem 0.45rem; }
+    .c-path code { font-size: 11.5px; }
+    .c-num { font-size: 10.5px; }
+  }
 
   .perf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.85rem; }
   @media (max-width: 860px) { .perf-grid { grid-template-columns: 1fr; } }
-  .perf-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.15rem; }
+  .perf-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem 1rem; }
+  @media (max-width: 640px) { .perf-card { padding: 0.75rem 0.85rem; } .perf-card ol li { font-size: 12.5px; padding: 0.35rem 0; } }
   .perf-card h3 { margin: 0 0 0.5rem; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
   .perf-card ol, .perf-card ul { padding: 0; margin: 0; list-style: none; counter-reset: n; }
   .perf-card ol li { counter-increment: n; display: flex; justify-content: space-between; align-items: baseline; padding: 0.4rem 0; border-bottom: 1px dashed var(--border); font-size: 13.5px; }
@@ -144,7 +173,7 @@
       <div class="brand">usaindiacfo.com <span class="sub">— site walkthrough</span></div>
       <div class="meta-inline">
         <span class="badge badge-dev">Dev server · warmed</span>
-        <span class="mono small">2026-04-23T13:50:57.905Z</span>
+        <span class="mono small">2026-04-23T16:07:19.831Z</span>
       </div>
     </div>
   </header>
