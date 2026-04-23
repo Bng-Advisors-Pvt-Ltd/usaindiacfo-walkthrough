@@ -1,0 +1,6 @@
+{
+  "mode": "dev",
+  "baseUrl": "http://localhost:3000",
+  "generatedAt": "2026-04-23T13:50:57.905Z",
+  "note": "Measured against dev server (next dev) after warm-up pass"
+}

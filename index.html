@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>usaindiacfo.com — site walkthrough</title>
+  <meta name="description" content="Walkthrough video, sitemap, and responsive showcase of usaindiacfo.com" />
+  <style>
+  :root {
+    --bg: #ffffff;
+    --bg-alt: #f8fafc;
+    --fg: #0f172a;
+    --muted: #64748b;
+    --subtle: #94a3b8;
+    --border: #e2e8f0;
+    --brand: #2563eb;
+    --brand-fg: #ffffff;
+    --rose: #dc2626;
+    --emerald: #059669;
+    --amber: #d97706;
+    --code-bg: #f1f5f9;
+    --code-fg: #334155;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b1220;
+      --bg-alt: #111827;
+      --fg: #f1f5f9;
+      --muted: #94a3b8;
+      --subtle: #64748b;
+      --border: #1f2937;
+      --brand: #60a5fa;
+      --brand-fg: #0b1220;
+      --code-bg: #0f172a;
+      --code-fg: #cbd5e1;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; }
+  body {
+    font: 15px/1.6 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg); color: var(--fg); -webkit-font-smoothing: antialiased;
+    width: 100%; max-width: 100vw;
+  }
+  img, video { max-width: 100%; height: auto; }
+  a { color: var(--brand); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code { background: var(--code-bg); color: var(--code-fg); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.88em; padding: 0.1rem 0.4rem; border-radius: 4px; word-break: break-word; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+  @media (max-width: 640px) { .wrap { padding: 0 1rem; } }
+
+  .topbar { border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 10; backdrop-filter: blur(8px); background: rgba(255,255,255,0.85); }
+  @media (prefers-color-scheme: dark) { .topbar { background: rgba(11,18,32,0.85); } }
+  .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.85rem 0; flex-wrap: wrap; }
+  .brand { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; }
+  .brand .sub { color: var(--muted); font-weight: 400; }
+  .meta-inline { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; color: var(--muted); }
+  .badge { display: inline-flex; align-items: center; padding: 0.2rem 0.65rem; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: 0.03em; }
+  .badge-dev { background: rgba(37,99,235,0.12); color: var(--brand); border: 1px solid rgba(37,99,235,0.25); }
+  .badge-prod { background: rgba(5,150,105,0.12); color: var(--emerald); border: 1px solid rgba(5,150,105,0.25); }
+
+  main { padding: 2rem 0 3rem; }
+  @media (max-width: 640px) { main { padding: 1.25rem 0 2rem; } }
+
+  .section { margin-bottom: 2.5rem; }
+  .section h2 { font-size: clamp(1.2rem, 3vw, 1.5rem); margin: 0 0 0.25rem; font-weight: 700; letter-spacing: -0.01em; }
+  .section .lead { color: var(--muted); margin: 0 0 1.25rem; max-width: 780px; font-size: 14.5px; }
+
+  .video { margin: 0; background: #000; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(15,23,42,0.12); }
+  .video video { display: block; width: 100%; background: #000; }
+
+  .links-row { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1rem; }
+  .btn { display: inline-flex; align-items: center; padding: 0.6rem 1.1rem; min-height: 40px; border-radius: 8px; background: var(--bg-alt); color: var(--fg); border: 1px solid var(--border); text-decoration: none; font-size: 13px; font-weight: 500; transition: all 0.12s; }
+  .btn:hover { border-color: var(--brand); color: var(--brand); text-decoration: none; }
+  .btn.primary { background: var(--brand); color: var(--brand-fg); border-color: var(--brand); }
+  .btn.primary:hover { background: var(--brand); opacity: 0.9; color: var(--brand-fg); }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.75rem; }
+  .stat { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.15rem; }
+  .stat-v { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.15; }
+  .stat-v .unit { font-size: 0.85rem; font-weight: 500; color: var(--muted); }
+  .stat-l { font-size: 11.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-top: 0.35rem; }
+  .stat-ok .stat-v { color: var(--emerald); }
+  .stat-err .stat-v { color: var(--rose); }
+
+  /* Sitemap — the simple classic group-table style */
+  .group { margin-bottom: 1.5rem; }
+  .group-title { margin: 0 0 0.4rem; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); display: flex; align-items: center; gap: 0.5rem; }
+  .group-title .count { background: var(--code-bg); color: var(--muted); padding: 0.05rem 0.5rem; border-radius: 999px; font-size: 10px; font-weight: 600; letter-spacing: 0.04em; }
+  .tbl-wrap { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--bg); }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th { background: var(--bg-alt); color: var(--muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; text-align: left; padding: 0.5rem 0.85rem; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  td { padding: 0.55rem 0.85rem; border-bottom: 1px solid var(--border); vertical-align: top; word-break: break-word; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--bg-alt); }
+  .c-path code { color: var(--brand); font-weight: 500; word-break: break-all; }
+  .c-num { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px; white-space: nowrap; }
+  .c-err .ok { color: var(--emerald); font-weight: 600; }
+  .c-err .err { color: var(--rose); font-weight: 700; }
+
+  @media (max-width: 900px) { .hide-md { display: none; } }
+  @media (max-width: 600px) { .hide-sm { display: none; } th, td { padding: 0.5rem 0.7rem; font-size: 12.5px; } }
+
+  .perf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.85rem; }
+  @media (max-width: 860px) { .perf-grid { grid-template-columns: 1fr; } }
+  .perf-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.15rem; }
+  .perf-card h3 { margin: 0 0 0.5rem; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .perf-card ol, .perf-card ul { padding: 0; margin: 0; list-style: none; counter-reset: n; }
+  .perf-card ol li { counter-increment: n; display: flex; justify-content: space-between; align-items: baseline; padding: 0.4rem 0; border-bottom: 1px dashed var(--border); font-size: 13.5px; }
+  .perf-card ol li::before { content: counter(n); color: var(--subtle); font-size: 10.5px; font-weight: 700; width: 18px; flex-shrink: 0; }
+  .perf-card ol li:last-child, .perf-card ul li:last-child { border-bottom: none; }
+  .perf-card ol li code { flex: 1; }
+  .ms { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); font-weight: 600; }
+  .ok-note { color: var(--emerald); margin: 0; font-weight: 500; font-size: 14px; }
+  .err-card { border-color: var(--rose); }
+  .err-card ul { padding-left: 1rem; }
+  .err-card ul li { font-size: 13px; margin-bottom: 0.3rem; padding: 0.2rem 0; }
+
+  /* Build section — compact */
+  .build { background: var(--bg-alt); margin: 3rem -1.5rem 0; padding: 2rem 1.5rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  @media (max-width: 640px) { .build { margin: 2rem -1rem 0; padding: 1.5rem 1rem; } }
+  .cmds { display: grid; grid-template-columns: 1fr; gap: 0.75rem; max-width: 780px; }
+  .cmd { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem 1rem; }
+  .cmd-label { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; margin-bottom: 0.4rem; }
+  pre { margin: 0; }
+  pre code.block { display: block; padding: 0.7rem 0.85rem; background: var(--code-bg); color: var(--code-fg); border-radius: 6px; overflow-x: auto; white-space: pre; font-size: 13px; line-height: 1.5; border: 1px solid var(--border); }
+  @media (max-width: 640px) { pre code.block { font-size: 11.5px; padding: 0.6rem 0.75rem; } }
+
+  .foot { border-top: 1px solid var(--border); padding: 1.25rem 0; margin-top: 2rem; }
+  .foot-inner { display: flex; align-items: center; justify-content: center; gap: 0.55rem; flex-wrap: wrap; color: var(--muted); font-size: 13px; }
+  .foot-inner .sep { color: var(--subtle); }
+
+  .muted { color: var(--muted); }
+  .small { font-size: 12px; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">usaindiacfo.com <span class="sub">— site walkthrough</span></div>
+      <div class="meta-inline">
+        <span class="badge badge-dev">Dev server · warmed</span>
+        <span class="mono small">2026-04-23T13:50:57.905Z</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section id="walkthrough" class="section">
+      <h2>Full-site walkthrough</h2>
+      <p class="lead">Paced tour of every core route. The banner at the top of each frame names the page, URL, current action, and viewport.</p>
+      <figure class="video">
+             <video controls preload="metadata" src="walkthrough.webm" playsinline></video>
+           </figure>
+    </section>
+
+    <section id="responsive" class="section">
+      <h2>Responsive showcase</h2>
+      <p class="lead">Live viewport-resize video across ten breakpoints for four key routes. The full gallery (every route × four viewports × both themes) is a separate page.</p>
+      <figure class="video"><video controls preload="metadata" src="responsive/responsive-showcase.webm" playsinline></video></figure>
+      <div class="links-row">
+        <a class="btn primary" href="responsive/responsive.html">Open full responsive gallery →</a>
+      </div>
+    </section>
+
+    <section id="summary" class="section">
+      <h2>At a glance</h2>
+      <div class="stats">
+        
+    <div class="stat ">
+      <div class="stat-v">16</div>
+      <div class="stat-l">Routes</div>
+    </div>
+        
+    <div class="stat ">
+      <div class="stat-v">1140<span class="unit"> ms</span></div>
+      <div class="stat-l">Avg load</div>
+    </div>
+        
+    <div class="stat stat-ok">
+      <div class="stat-v">0</div>
+      <div class="stat-l">Console errors</div>
+    </div>
+        
+    <div class="stat ">
+      <div class="stat-v">Dev server · warmed</div>
+      <div class="stat-l">Measurement mode</div>
+    </div>
+      </div>
+    </section>
+
+    <section id="sitemap" class="section">
+      <h2>Sitemap</h2>
+      <p class="lead">16 routes grouped by area.</p>
+      
+    <div class="group">
+      <h3 class="group-title">Core <span class="count">1</span></h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Path</th><th>Title</th><th class="hide-md">H1</th><th>Load (dev, warmed)</th><th class="hide-sm">Status</th><th class="hide-sm">Links</th><th>Err</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <td class="c-path"><code>/</code></td>
+          <td>USAIndiaCFO | Virtual CFO Services in USA and India | USAIndiaCFO</td>
+          <td class="muted hide-md">Virtual CFO Servicesin USA and India</td>
+          <td class="c-num">988 ms</td>
+          <td class="hide-sm">200</td>
+          <td class="hide-sm">17/1</td>
+          <td class="c-err"><span class="ok">0</span></td>
+        </tr></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="group">
+      <h3 class="group-title">Services <span class="count">3</span></h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Path</th><th>Title</th><th class="hide-md">H1</th><th>Load (dev, warmed)</th><th class="hide-sm">Status</th><th class="hide-sm">Links</th><th>Err</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <td class="c-path"><code>/usacfo</code></td>
+          <td>USA CFO Services | USAIndiaCFO</td>
+          <td class="muted hide-md">Comprehensive USA CFO Services for Global Businesses</td>
+          <td class="c-num">1079 ms</td>
+          <td class="hide-sm">200</td>
+          <td class="hide-sm">17/1</td>
+          <td class="c-err"><span class="ok">0</span></td>
+        </tr>
+        <tr>
+          <td class="c-path"><code>/indiacfo</code></td>
+          <td>India CFO Services | USAIndiaCFO</td>
+          <td class="muted hide-md">India CFO Services for Seamless Business Operations</td>
+          <td class="c-num">1134 ms</td>
+          <td class="hide-sm">200</td>
+          <td class="hide-sm">17/1</td>
+          <td class="c-err"><span class="ok">0</span></td>
+        </tr>
+        <tr>
+          <td class="c-path"><code>/familyoffice</code></td>
+          <td>Family Office Services | USAIndiaCFO</td>
+          <td class="muted hide-md">Family Office Services for Global Wealth Management</td>
+          <td class="c-num">1121 ms</td>
+          <td class="hide-sm">200</td>
+          <td class="hide-sm">17/1</td>
+          <td class="c-err"><span class="ok">0</span></td>
+        </tr></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="group">
+      <h3 class="group-title">Company <span class="count">4</span></h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Path</th><th>Title</th><th class="hide-md">H1</th><th>Load (dev, warmed)</th><th class="hide-sm">Status</th><th class="hide-sm">Links</th><th>Err</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <td class="c-path"><code>/about</code></td>
+          <td>About Us | USAIndiaCFO</td>
+          <td class="muted hide-md">Our Story</td>
+          <td class="c-num">837 ms</td>
+          <td class="hide-sm">200</td>
+          <td class="hide-sm">17/1</td>
+          <td class="c-err"><span class="ok">0</span></td>
+        </tr>
+        <tr>
+          <td class="c-path"><code>/team</code></td>
+          <td>Meet the Team | USAIndiaCFO</td>
+          <td class="muted hide-md">Meet the Team</td>
+          <td class="c-num">1272 ms</td>
+          <td class="hide-sm">200</td>
+          <td class="hide-sm">17/1</td>
+          <td class="c-err"><span class="ok">0</span></td>
+        </tr>
+        <tr>
+          <td class="c-path"><code>/leadership</code></td>
+          <td>Leadership Team | USAIndiaCFO</td>
+          <td class="muted hide-md">Meet the Visionary Leaders Driving USAIndiaCFO&#39;s Global Success</td>
+          <td class="c-num">1124 ms</td>
+          <td class="hide-sm">200</td>
+          <td class="hide-sm">17/1</td>
+          <td class="c-err"><span class="ok">0</span></td>
+        </tr>
+        <tr>
+          <td class="c-path"><code>/career</code></td>
+          <td>Careers | USAIndiaCFO</td>
+          <td class="muted hide-md">Build Your Career at the US-India Intersection</td>
+          <td class="c-num">1173 ms</td>
+          <td class="hide-sm">200</td>
+          <td class="hide-sm">17/1</td>
+          <td class="c-err"><span class="ok">0</span></td>
+        </tr></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="group">
+      <h3 class="group-title">Resources <span class="count">4</span></h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Path</th><th>Title</th><th class="hide-md">H1</th><th>Load (dev, warmed)</th><th class="hide-sm">Status</th><th class="hide-sm">Links</th><th>Err</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <td class="c-path"><code>/insights</code></td>
+          <td>Industry Insights | USAIndiaCFO</td>
+          <td class="muted hide-md">Industry Insights</td>
+          <td class="c-num">1025 ms</td>
+          <td class="hide-sm">200</td>
+          <td class="hide-sm">17/1</td>
+          <td class="c-err"><span class="ok">0</span></td>
+        </tr>
+        <tr>
+          <td class="c-path"><code>/faq</code></td>
+          <td>FAQ | USAIndiaCFO</td>
+          <td class="muted hide-md">Frequently Asked Questions</td>
+          <td class="c-num">1176 ms</td>
+          <td class="hide-sm">200</td>
+          <td class="hide-sm">17/1</td>
+          <td class="c-err"><span class="ok">0</span></td>
+        </tr>
+        <tr>
+          <td class="c-path"><code>/contact</code></td>
+          <td>Contact Us | USAIndiaCFO</td>
+          <td class="muted hide-md">Contact Us</td>
+          <td class="c-num">1242 ms</td>
+          <td class="hide-sm">200</td>
+          <td class="hide-sm">17/1</td>
+          <td class="c-err"><span class="ok">0</span></td>
+        </tr>
+        <tr>
+          <td class="c-path"><code>/make-payment</code></td>
+          <td>Make a Payment | USAIndiaCFO</td>
+          <td class="muted hide-md">Securely Complete Your Payment</td>
+          <td class="c-num">1141 ms</td>
+          <td class="hide-sm">200</td>
+          <td class="hide-sm">17/1</td>
+          <td class="c-err"><span class="ok">0</span></td>
+        </tr></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="group">
+      <h3 class="group-title">Legal <span class="count">4</span></h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Path</th><th>Title</th><th class="hide-md">H1</th><th>Load (dev, warmed)</th><th class="hide-sm">Status</th><th class="hide-sm">Links</th><th>Err</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <td class="c-path"><code>/terms</code></td>
+          <td>Terms of Service | USAIndiaCFO</td>
+          <td class="muted hide-md">Terms of Service</td>
+          <td class="c-num">1231 ms</td>
+          <td class="hide-sm">200</td>
+          <td class="hide-sm">17/1</td>
+          <td class="c-err"><span class="ok">0</span></td>
+        </tr>
+        <tr>
+          <td class="c-path"><code>/privacy-policy</code></td>
+          <td>Privacy Policy | USAIndiaCFO</td>
+          <td class="muted hide-md">Privacy Policy</td>
+          <td class="c-num">1240 ms</td>
+          <td class="hide-sm">200</td>
+          <td class="hide-sm">17/1</td>
+          <td class="c-err"><span class="ok">0</span></td>
+        </tr>
+        <tr>
+          <td class="c-path"><code>/payment-policy</code></td>
+          <td>Payment Policy | USAIndiaCFO</td>
+          <td class="muted hide-md">Payment Policy</td>
+          <td class="c-num">1235 ms</td>
+          <td class="hide-sm">200</td>
+          <td class="hide-sm">17/1</td>
+          <td class="c-err"><span class="ok">0</span></td>
+        </tr>
+        <tr>
+          <td class="c-path"><code>/accessibility</code></td>
+          <td>Accessibility Statement | USAIndiaCFO</td>
+          <td class="muted hide-md">Accessibility Statement</td>
+          <td class="c-num">1226 ms</td>
+          <td class="hide-sm">200</td>
+          <td class="hide-sm">17/1</td>
+          <td class="c-err"><span class="ok">0</span></td>
+        </tr></tbody>
+        </table>
+      </div>
+    </div>
+      <div class="links-row">
+        <a class="btn" href="sitemap.html">Printable sitemap →</a>
+        <a class="btn" href="sitemap.json">JSON</a>
+      </div>
+    </section>
+
+    <section id="performance" class="section">
+      <h2>Performance</h2>
+      <div class="perf-grid">
+        <div class="perf-card">
+          <h3>Slowest</h3>
+          <ol><li><code>/team</code><span class="ms">1272 ms</span></li><li><code>/contact</code><span class="ms">1242 ms</span></li><li><code>/privacy-policy</code><span class="ms">1240 ms</span></li></ol>
+        </div>
+        <div class="perf-card">
+          <h3>Fastest</h3>
+          <ol><li><code>/about</code><span class="ms">837 ms</span></li><li><code>/</code><span class="ms">988 ms</span></li><li><code>/insights</code><span class="ms">1025 ms</span></li></ol>
+        </div>
+        <div class="perf-card ">
+          <h3>Console errors</h3>
+          <p class="ok-note">Clean run. Zero errors across all routes.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-inner">
+      <span>Generated for <strong>usaindiacfo.com</strong></span>
+      <span class="sep">·</span>
+      <span>Playwright + Next.js</span>
+      <span class="sep">·</span><span class="mono small">http://localhost:3000</span>
+    </div>
+  </footer>
+</body>
+</html>

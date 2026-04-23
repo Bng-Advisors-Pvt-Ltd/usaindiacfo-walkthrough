@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive showcase — usaindiacfo.com</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --fg: #0f172a;
+      --fg-muted: #64748b;
+      --border: #e2e8f0;
+      --brand: #4f46e5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0b1220; --card: #111827; --fg: #f1f5f9; --fg-muted: #94a3b8; --border: #1f2937; --brand: #818cf8; }
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; overflow-x: hidden; }
+    body {
+      font: 14px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg); color: var(--fg); -webkit-font-smoothing: antialiased;
+    }
+    .shell { max-width: 1400px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+    @media (max-width: 640px) { .shell { padding: 1.5rem 1rem 2.5rem; } }
+    .back { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 13px; color: var(--fg-muted); text-decoration: none; margin-bottom: 1.25rem; }
+    .back:hover { color: var(--brand); }
+    h1 { margin: 0 0 0.35rem; font-size: clamp(1.5rem, 4vw, 2.15rem); font-weight: 800; letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.1rem, 3vw, 1.35rem); margin: 2rem 0 0.75rem; letter-spacing: -0.01em; }
+    .intro { color: var(--fg-muted); margin: 0 0 2rem; max-width: 720px; font-size: 15px; }
+    .video { margin: 1rem 0 2.5rem; background: #000; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 12px 40px rgba(15,23,42,0.12); }
+    .video video { width: 100%; height: auto; display: block; background: #000; }
+    article.row {
+      background: var(--card); padding: 1.1rem 1.25rem; border: 1px solid var(--border);
+      border-radius: 12px; margin-bottom: 1.1rem;
+    }
+    @media (max-width: 480px) { article.row { padding: 0.9rem 1rem; } }
+    article.row header {
+      display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem;
+    }
+    article.row h3 { margin: 0; font-size: 1rem; font-weight: 700; }
+    .path { color: var(--fg-muted); font-weight: 400; font-family: ui-monospace, monospace; font-size: 0.8rem; margin-left: 0.25rem; word-break: break-all; }
+    .theme { font-size: 10px; text-transform: uppercase; padding: 0.15rem 0.6rem; border-radius: 999px; letter-spacing: 0.08em; font-weight: 700; }
+    .theme-light { background: #fef3c7; color: #92400e; }
+    .theme-dark { background: #1f2937; color: #e5e7eb; }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+    @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .grid { grid-template-columns: 1fr; gap: 0.65rem; } }
+    figure { margin: 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--bg); }
+    figure img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    @media (max-width: 520px) {
+      figure img { aspect-ratio: 16 / 9; }
+    }
+    figcaption {
+      padding: 0.45rem 0.7rem; font-size: 0.78rem; color: var(--fg-muted);
+      border-top: 1px solid var(--border); background: var(--card);
+      font-family: ui-monospace, monospace; letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <a class="back" href="../index.html">← Back to report</a>
+    <h1>Responsive showcase</h1>
+    <p class="intro">Full set of routes captured across 4 viewports (mobile, tablet, laptop, desktop) in both themes. Video below shows live viewport resizing across key routes.</p>
+    <section>
+      <h2>Live resize video</h2>
+      <div class="video"><video controls preload="metadata" playsinline src="responsive-showcase.webm"></video></div>
+    </section>
+    <h2>Viewport grid</h2>
+    
+    <article class="row">
+      <header>
+        <h3>Home <span class="path">/</span></h3>
+        <span class="theme theme-light">light</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/light/mobile/home.png" alt="Home light mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/tablet/home.png" alt="Home light tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/laptop/home.png" alt="Home light laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/desktop/home.png" alt="Home light desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>USA CFO <span class="path">/usacfo</span></h3>
+        <span class="theme theme-light">light</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/light/mobile/usacfo.png" alt="USA CFO light mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/tablet/usacfo.png" alt="USA CFO light tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/laptop/usacfo.png" alt="USA CFO light laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/desktop/usacfo.png" alt="USA CFO light desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>India CFO <span class="path">/indiacfo</span></h3>
+        <span class="theme theme-light">light</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/light/mobile/indiacfo.png" alt="India CFO light mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/tablet/indiacfo.png" alt="India CFO light tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/laptop/indiacfo.png" alt="India CFO light laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/desktop/indiacfo.png" alt="India CFO light desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Family Office <span class="path">/familyoffice</span></h3>
+        <span class="theme theme-light">light</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/light/mobile/familyoffice.png" alt="Family Office light mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/tablet/familyoffice.png" alt="Family Office light tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/laptop/familyoffice.png" alt="Family Office light laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/desktop/familyoffice.png" alt="Family Office light desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>About <span class="path">/about</span></h3>
+        <span class="theme theme-light">light</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/light/mobile/about.png" alt="About light mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/tablet/about.png" alt="About light tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/laptop/about.png" alt="About light laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/desktop/about.png" alt="About light desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Team <span class="path">/team</span></h3>
+        <span class="theme theme-light">light</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/light/mobile/team.png" alt="Team light mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/tablet/team.png" alt="Team light tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/laptop/team.png" alt="Team light laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/desktop/team.png" alt="Team light desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Leadership <span class="path">/leadership</span></h3>
+        <span class="theme theme-light">light</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/light/mobile/leadership.png" alt="Leadership light mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/tablet/leadership.png" alt="Leadership light tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/laptop/leadership.png" alt="Leadership light laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/desktop/leadership.png" alt="Leadership light desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Career <span class="path">/career</span></h3>
+        <span class="theme theme-light">light</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/light/mobile/career.png" alt="Career light mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/tablet/career.png" alt="Career light tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/laptop/career.png" alt="Career light laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/desktop/career.png" alt="Career light desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Insights <span class="path">/insights</span></h3>
+        <span class="theme theme-light">light</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/light/mobile/insights.png" alt="Insights light mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/tablet/insights.png" alt="Insights light tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/laptop/insights.png" alt="Insights light laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/desktop/insights.png" alt="Insights light desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>FAQ <span class="path">/faq</span></h3>
+        <span class="theme theme-light">light</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/light/mobile/faq.png" alt="FAQ light mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/tablet/faq.png" alt="FAQ light tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/laptop/faq.png" alt="FAQ light laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/desktop/faq.png" alt="FAQ light desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Contact <span class="path">/contact</span></h3>
+        <span class="theme theme-light">light</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/light/mobile/contact.png" alt="Contact light mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/tablet/contact.png" alt="Contact light tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/laptop/contact.png" alt="Contact light laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/desktop/contact.png" alt="Contact light desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Make Payment <span class="path">/make-payment</span></h3>
+        <span class="theme theme-light">light</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/light/mobile/make-payment.png" alt="Make Payment light mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/tablet/make-payment.png" alt="Make Payment light tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/laptop/make-payment.png" alt="Make Payment light laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/desktop/make-payment.png" alt="Make Payment light desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Terms <span class="path">/terms</span></h3>
+        <span class="theme theme-light">light</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/light/mobile/terms.png" alt="Terms light mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/tablet/terms.png" alt="Terms light tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/laptop/terms.png" alt="Terms light laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/desktop/terms.png" alt="Terms light desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Privacy Policy <span class="path">/privacy-policy</span></h3>
+        <span class="theme theme-light">light</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/light/mobile/privacy-policy.png" alt="Privacy Policy light mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/tablet/privacy-policy.png" alt="Privacy Policy light tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/laptop/privacy-policy.png" alt="Privacy Policy light laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/desktop/privacy-policy.png" alt="Privacy Policy light desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Payment Policy <span class="path">/payment-policy</span></h3>
+        <span class="theme theme-light">light</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/light/mobile/payment-policy.png" alt="Payment Policy light mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/tablet/payment-policy.png" alt="Payment Policy light tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/laptop/payment-policy.png" alt="Payment Policy light laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/desktop/payment-policy.png" alt="Payment Policy light desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Accessibility <span class="path">/accessibility</span></h3>
+        <span class="theme theme-light">light</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/light/mobile/accessibility.png" alt="Accessibility light mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/tablet/accessibility.png" alt="Accessibility light tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/laptop/accessibility.png" alt="Accessibility light laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/light/desktop/accessibility.png" alt="Accessibility light desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Home <span class="path">/</span></h3>
+        <span class="theme theme-dark">dark</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/mobile/home.png" alt="Home dark mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/tablet/home.png" alt="Home dark tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/laptop/home.png" alt="Home dark laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/desktop/home.png" alt="Home dark desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>USA CFO <span class="path">/usacfo</span></h3>
+        <span class="theme theme-dark">dark</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/mobile/usacfo.png" alt="USA CFO dark mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/tablet/usacfo.png" alt="USA CFO dark tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/laptop/usacfo.png" alt="USA CFO dark laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/desktop/usacfo.png" alt="USA CFO dark desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>India CFO <span class="path">/indiacfo</span></h3>
+        <span class="theme theme-dark">dark</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/mobile/indiacfo.png" alt="India CFO dark mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/tablet/indiacfo.png" alt="India CFO dark tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/laptop/indiacfo.png" alt="India CFO dark laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/desktop/indiacfo.png" alt="India CFO dark desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Family Office <span class="path">/familyoffice</span></h3>
+        <span class="theme theme-dark">dark</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/mobile/familyoffice.png" alt="Family Office dark mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/tablet/familyoffice.png" alt="Family Office dark tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/laptop/familyoffice.png" alt="Family Office dark laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/desktop/familyoffice.png" alt="Family Office dark desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>About <span class="path">/about</span></h3>
+        <span class="theme theme-dark">dark</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/mobile/about.png" alt="About dark mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/tablet/about.png" alt="About dark tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/laptop/about.png" alt="About dark laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/desktop/about.png" alt="About dark desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Team <span class="path">/team</span></h3>
+        <span class="theme theme-dark">dark</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/mobile/team.png" alt="Team dark mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/tablet/team.png" alt="Team dark tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/laptop/team.png" alt="Team dark laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/desktop/team.png" alt="Team dark desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Leadership <span class="path">/leadership</span></h3>
+        <span class="theme theme-dark">dark</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/mobile/leadership.png" alt="Leadership dark mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/tablet/leadership.png" alt="Leadership dark tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/laptop/leadership.png" alt="Leadership dark laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/desktop/leadership.png" alt="Leadership dark desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Career <span class="path">/career</span></h3>
+        <span class="theme theme-dark">dark</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/mobile/career.png" alt="Career dark mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/tablet/career.png" alt="Career dark tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/laptop/career.png" alt="Career dark laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/desktop/career.png" alt="Career dark desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Insights <span class="path">/insights</span></h3>
+        <span class="theme theme-dark">dark</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/mobile/insights.png" alt="Insights dark mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/tablet/insights.png" alt="Insights dark tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/laptop/insights.png" alt="Insights dark laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/desktop/insights.png" alt="Insights dark desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>FAQ <span class="path">/faq</span></h3>
+        <span class="theme theme-dark">dark</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/mobile/faq.png" alt="FAQ dark mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/tablet/faq.png" alt="FAQ dark tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/laptop/faq.png" alt="FAQ dark laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/desktop/faq.png" alt="FAQ dark desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Contact <span class="path">/contact</span></h3>
+        <span class="theme theme-dark">dark</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/mobile/contact.png" alt="Contact dark mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/tablet/contact.png" alt="Contact dark tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/laptop/contact.png" alt="Contact dark laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/desktop/contact.png" alt="Contact dark desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Make Payment <span class="path">/make-payment</span></h3>
+        <span class="theme theme-dark">dark</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/mobile/make-payment.png" alt="Make Payment dark mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/tablet/make-payment.png" alt="Make Payment dark tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/laptop/make-payment.png" alt="Make Payment dark laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/desktop/make-payment.png" alt="Make Payment dark desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Terms <span class="path">/terms</span></h3>
+        <span class="theme theme-dark">dark</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/mobile/terms.png" alt="Terms dark mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/tablet/terms.png" alt="Terms dark tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/laptop/terms.png" alt="Terms dark laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/desktop/terms.png" alt="Terms dark desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Privacy Policy <span class="path">/privacy-policy</span></h3>
+        <span class="theme theme-dark">dark</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/mobile/privacy-policy.png" alt="Privacy Policy dark mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/tablet/privacy-policy.png" alt="Privacy Policy dark tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/laptop/privacy-policy.png" alt="Privacy Policy dark laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/desktop/privacy-policy.png" alt="Privacy Policy dark desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Payment Policy <span class="path">/payment-policy</span></h3>
+        <span class="theme theme-dark">dark</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/mobile/payment-policy.png" alt="Payment Policy dark mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/tablet/payment-policy.png" alt="Payment Policy dark tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/laptop/payment-policy.png" alt="Payment Policy dark laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/desktop/payment-policy.png" alt="Payment Policy dark desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+
+    <article class="row">
+      <header>
+        <h3>Accessibility <span class="path">/accessibility</span></h3>
+        <span class="theme theme-dark">dark</span>
+      </header>
+      <div class="grid">
+        
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/mobile/accessibility.png" alt="Accessibility dark mobile" />
+            <figcaption>mobile · 375×812</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/tablet/accessibility.png" alt="Accessibility dark tablet" />
+            <figcaption>tablet · 768×1024</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/laptop/accessibility.png" alt="Accessibility dark laptop" />
+            <figcaption>laptop · 1280×800</figcaption>
+          </figure>
+          <figure>
+            <img loading="lazy" src="../screenshots/dark/desktop/accessibility.png" alt="Accessibility dark desktop" />
+            <figcaption>desktop · 1920×1080</figcaption>
+          </figure>
+      </div>
+    </article>
+  </div>
+</body>
+</html>
